@@ -25,7 +25,7 @@ angular.module('authService', [])
   };
 
   authFactory.isLoggedIn = function() {
-    if (authToken.getToken()) {
+    if (AuthToken.getToken()) {
       return true;
     } else {
       return false;
@@ -34,7 +34,7 @@ angular.module('authService', [])
 
   // get the logged in user'
   authFactory.getUser = function() {
-    if (authToken.getToken()) {
+    if (AuthToken.getToken()) {
       return $http.get('/api/me', { cache: true })
     } else {
       return $q.reject({ message: 'User has no token.' });
